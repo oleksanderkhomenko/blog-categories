@@ -32,11 +32,11 @@ header ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  border: 1px solid #adb9e4d1;
-  background-color: #a3d4a0c4;
+  border: 1px solid #adb9e4;
+  background-color: #a3d4a0;
 }
 
-header ul li {
+header ul a {
   display: block;
   color: #666;
   text-align: center;
@@ -44,16 +44,59 @@ header ul li {
   text-decoration: none;
 }
 
-header ul li:hover:not(.active) {
-  background-color: #82afd0bf;
-  color: #bd36c3c4;
+header ul a:hover:not(.active) {
+  background-color: #82afd0;
+  color: #bd36c3;
 }
-header ul li.active {
+header ul a.active {
   color: #d9e000;
-  background-color: #4caf50ba;
+  background-color: #4caf50;
 }
 
 main {
   flex: 1;
   overflow: auto;
+  background:rgba(0,0,0,0.13);
+}
+
+/*login form*/
+form.new_user {
+  width:100%;
+  font-family:Helvetica;
+  color:#fff;
+  padding:30px 0px;
+}
+form.new_user h2 {
+  text-align:center;
+  margin:30px 0;
+  font-size:30px;
+}
+
+form.new_user input:not(.action-b) {
+  display:block;
+  width:300px;
+  margin:20px auto;
+  padding:15px;
+  background:rgba(0,0,0,0.2);
+  color:#fff;
+  border:0;
+}
+
+form.new_user input:focus:not(.action-b),form.new_user input:active:not(.action-b),form.new_user button:focus:not(.action-b),form.new_user button:active:not(.action-b) {
+  outline:none;
+}
+
+form.new_user .actions input{
+  background:#742ECC;
+  border:0;
+  color:#fff;
+  padding:10px;
+  font-size:20px;
+  width:330px;
+  margin:20px auto;
+  display:block;
+  cursor:pointer;
+}
+form.new_user .actions input:active {
+  background:#27ae60;
 }

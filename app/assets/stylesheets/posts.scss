@@ -1,3 +1,63 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.create-new-post-link {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px 5px 5px 5px;
+}
+
+.create-new-post-link:hover, .create-new-post-link:active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.container {
+  margin: 5px 5px 5px 5px;
+  border-top: 1px black;
+}
+
+.container ul {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.container ul li {
+  border-bottom: 1px solid black;
+  border-bottom-left-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.container ul li:nth-child(odd) {
+  background-color: #f5dfdf;
+}
+
+.container ul li:nth-child(even) {
+  background-color: #ead1e4;
+}
+
+.container ul a {
+  display: block;
+  color: #666;
+  padding: 5px 5px;
+  text-decoration: none;
+}
+
+.container ul a:hover {
+  background-color: #82afd0;
+  color: #bd36c3;
+}
+.container ul a.active {
+  color: #d9e000;
+  background-color: #4caf50;
+}
