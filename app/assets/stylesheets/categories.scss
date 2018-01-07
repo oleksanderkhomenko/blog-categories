@@ -1,0 +1,38 @@
+// Place all the styles related to the categories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.create-new-category-link {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px 5px 5px 5px;
+}
+
+.create-new-category-link:hover, .create-new-category-link:active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.container li {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.nested-category {
+  margin-left: 5px;
+}
+
+.width-5 {
+  width: 5%;
+}
+.width-95 {
+  width: 95%;
+}
+

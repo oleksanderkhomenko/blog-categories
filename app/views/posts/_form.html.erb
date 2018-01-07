@@ -26,6 +26,13 @@
     <%= f.text_area :text %>
   </p>
   <p>
+    <%= f.label 'Category' %>
+    <br/>
+    <%= f.select :category_id do %>
+      <%= draw_categories @categories, option: true %>
+    <% end %>
+  </p>
+  <p>
     <%= f.submit %>
   </p>
 <% end %>

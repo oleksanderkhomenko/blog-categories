@@ -1,0 +1,5 @@
+New Category
+<% if @category.has_parent? %>
+  You create sub category for <%= @category.parent.name %>
+<% end %>
+<%= render 'form' %>

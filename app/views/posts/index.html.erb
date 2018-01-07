@@ -4,6 +4,7 @@
     <% @posts.each do |post| %>
       <li>
         <%= link_to post.title, post %>
+        <%= link_to 'Delete', post_path(post), method: :delete %>
       </li>
     <% end %>
   </ul>

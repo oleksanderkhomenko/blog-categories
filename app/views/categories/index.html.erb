@@ -1,0 +1,7 @@
+<%= link_to 'Create New Category', new_category_path, class: 'create-new-category-link' %>
+<div class="container">
+  To create sub category - click on the existing category
+  <ul>
+    <%= draw_categories @categories.arrange(order: :created_at) %>
+  </ul>
+</div>
