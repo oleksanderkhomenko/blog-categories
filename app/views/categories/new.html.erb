@@ -1,5 +1,8 @@
-New Category
+<% if params[:from_post] %>
+  You have to create category first <br/>
+<% end %>
+New Category <br/>
 <% if @category.has_parent? %>
-  You create sub category for <%= @category.parent.name %>
+  You creating sub category for <%= @category.parent.name %>
 <% end %>
 <%= render 'form' %>

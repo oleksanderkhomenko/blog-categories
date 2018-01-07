@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root to: "posts#index"
   resources :posts, only: [:new, :create, :index, :destroy, :show]
   resources :categories, only: [:new, :create, :index, :destroy]
+  post 'posts/:id/like', to: 'posts#like', as: :like_post
 end

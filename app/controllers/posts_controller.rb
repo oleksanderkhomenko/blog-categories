@@ -1,8 +1,12 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[show destroy]
+  before_action :set_post, only: %i[show destroy like]
 
   def index
-    @posts = Post.all
+    if params[:category_id].present?
+      @posts = Post.where(category_id: params[:category_id])
+    else
+      @posts = Post.all
+    end
   end
 
   def new
@@ -21,11 +25,27 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post.increment!(:views_count)
+    if current_user.votes.where(post_id: @post).count.zero?
+      @vote = true
+    else
+      @vote = false
+    end
   end
 
   def destroy
     @post.destroy
     redirect_to posts_path
+  end
+
+  def like
+    vote = Vote.where(user_id: current_user.id, post_id: @post.id)
+    if vote.count.zero?
+      @post.like(current_user)
+    else
+      @post.unlike(current_user, vote.first)
+    end
+    redirect_to @post
   end
 
   private
@@ -35,6 +55,7 @@ class PostsController < ApplicationController
   end
 
   def set_post
-    @post = current_user.posts.find(params[:id])
+    @post ||= Post.find(params[:id])
   end
+
 end
