@@ -18,6 +18,16 @@
   <strong>Like Count:</strong>
   <%= link_to @post.likes_count, like_users_post_path(@post) %>
 </p>
+<p>
+  <strong>Author:</strong>
+  <% if @post.user_id == current_user.id %>
+    You
+  <% else %>
+    <%= @post.user.email %>
+  <% end %>
+</p>
 <%= link_to (@vote ? 'like' : 'unlike'), like_post_path(@post), method: :post %>
-<%= link_to 'Edit post', edit_post_path(@post) %>
+<% if policy(@post).update? %>
+  <%= link_to 'Edit post', edit_post_path(@post) %>
+<% end %>
 

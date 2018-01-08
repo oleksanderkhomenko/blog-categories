@@ -25,10 +25,12 @@ class PostsController < ApplicationController
   end
 
   def edit
+    authorize @post
     @categories = Category.all.arrange(order: :created_at)
   end
 
   def update
+    authorize @post
     @post.update(post_params)
     redirect_to @post
   end

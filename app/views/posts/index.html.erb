@@ -3,7 +3,7 @@
   <ul>
     <% @posts.each do |post| %>
       <li>
-        <%= link_to "#{post.title} views(#{post.views_count})", post, class: 'width-80' %>
+        <%= link_to "#{post.title} (#{post.views_count} views)", post, class: 'width-80' %>
         <%= link_to "category: #{post.category.name}", posts_path(category_id: post.category), class: 'width-15' %>
         <%= link_to 'Delete', post_path(post), method: :delete, class: 'width-5' %>
       </li>
