@@ -1,5 +1,5 @@
 <% if option %>
-  <option value="<%= category.id %>"><%= category.name %></option>
+  <option value="<%= category.id %>" <%= @post.category_id == category.id ? 'selected' : '' %>><%= category.name %></option>
 <% else %>
   <li class="<%= category.has_parent? ? 'nested-category' : '' %>" style="margin-left: <%= category.depth*10 %>px;">
     <%= link_to category.name, new_category_path(parent_id: category), class: 'width-95' %>

@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[show destroy like]
+  before_action :set_post, only: %i[show destroy like edit update like_users]
 
   def index
     if params[:category_id].present?
@@ -24,6 +24,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @categories = Category.all.arrange(order: :created_at)
+  end
+
+  def update
+    @post.update(post_params)
+    redirect_to @post
+  end
+
   def show
     @post.increment!(:views_count)
     if current_user.votes.where(post_id: @post).count.zero?
@@ -46,6 +55,10 @@ class PostsController < ApplicationController
       @post.unlike(current_user, vote.first)
     end
     redirect_to @post
+  end
+
+  def like_users
+    @users = @post.votes.map { |v| v.user.email }
   end
 
   private

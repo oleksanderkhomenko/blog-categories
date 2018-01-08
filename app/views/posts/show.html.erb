@@ -16,6 +16,8 @@
 </p>
 <p>
   <strong>Like Count:</strong>
-  <%= @post.likes_count %>
+  <%= link_to @post.likes_count, like_users_post_path(@post) %>
 </p>
 <%= link_to (@vote ? 'like' : 'unlike'), like_post_path(@post), method: :post %>
+<%= link_to 'Edit post', edit_post_path(@post) %>
+
